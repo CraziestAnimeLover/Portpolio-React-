@@ -3,40 +3,34 @@ import project2 from "../assets/projects/project-2.jpg";
 import project3 from "../assets/projects/project-3.jpg";
 import project4 from "../assets/projects/project-4.jpg";
 
-export const HERO_CONTENT = `I am a passionate full stack developer with a knack for crafting robust and scalable web applications. With 5 years of hands-on experience, I have honed my skills in front-end technologies like React and Next.js, as well as back-end technologies like Node.js, MySQL, PostgreSQL, and MongoDB. My goal is to leverage my expertise to create innovative solutions that drive business growth and deliver exceptional user experiences.`;
+export const HERO_CONTENT = `I am a passionate MERN Stack Developer with hands-on experience in building dynamic, scalable, and user-friendly web applications. Skilled in React, Redux, Node.js, Express, and MongoDB, I enjoy creating reusable components and collaborating with teams to solve complex business problems. My goal is to deliver high-quality code and seamless user experiences that drive value and growth.`;
 
-export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. With 5 years of professional experience, I have worked with a variety of technologies, including React, Next.js, Node.js, MySQL, PostgreSQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.`;
+export const ABOUT_TEXT = `I am a dedicated and versatile Full Stack Developer with practical experience as a MERN Stack Developer Intern. I specialize in creating responsive UI components, reusable code, and scalable back-end solutions using the MERN stack. I thrive in collaborative environments, contributing to brainstorming sessions, code reviews, and agile development practices. My background in mechanical engineering strengthens my problem-solving skills, and I enjoy continuously learning new technologies. Outside of coding, I like exploring new tools, contributing to projects, and staying active.`;
 
 export const EXPERIENCES = [
   {
-    year: "2023 - Present",
-    role: "Senior Full Stack Developer",
-    company: "Google Inc.",
-    description: `Led a team in developing and maintaining web applications using JavaScript, React.js, and Node.js. Implemented RESTful APIs and integrated with MongoDB databases. Collaborated with stakeholders to define project requirements and timelines.`,
-    technologies: ["Javascript", "React.js", "Next.js", "mongoDB"],
+    year: "Nov 2024 - Mar 2025",
+    role: "MERN Stack Developer Intern",
+    company: "Startup",
+    description: `Collaborated with the team to build dynamic web applications using the MERN stack. Implemented responsive UI components with React, Redux, and Tailwind CSS. Created reusable components to improve development efficiency and participated in Agile practices and code reviews to enhance project quality.`,
+    technologies: ["React", "Redux", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
   },
   {
-    year: "2022 - 2023",
-    role: "Frontend Developer",
-    company: "Adobe",
-    description: `Designed and developed user interfaces for web applications using Next.js and React. Worked closely with backend developers to integrate frontend components with Node.js APIs. Implemented responsive designs and optimized frontend performance.`,
-    technologies: ["HTML", "CSS", "Vue.js", "mySQL"],
+    year: "Jul 2021 - Oct 2024",
+    role: "Subject Matter Expert (Mechanical Engineering)",
+    company: "Chegg India",
+    description: `Solved complex mechanical engineering problems, applying strong analytical and critical thinking skills to deliver accurate and high-quality solutions.`,
+    technologies: ["Problem Solving", "Technical Writing"],
   },
   {
-    year: "2021 - 2022",
-    role: "Full Stack Developer",
-    company: "Facebook",
-    description: `Developed and maintained web applications using JavaScript, React.js, and Node.js. Designed and implemented RESTful APIs for data communication. Collaborated with cross-functional teams to deliver high-quality software products on schedule.`,
-    technologies: ["Python", "Svelte", "Three.js", "Postgres"],
-  },
-  {
-    year: "2020 - 2021",
-    role: "Software Engineer",
-    company: "Paypal",
-    description: `Contributed to the development of web applications using JavaScript, React.js, and Node.js. Managed databases and implemented data storage solutions using MongoDB. Worked closely with product managers to prioritize features and enhancements.`,
-    technologies: ["Ruby", "Rails", "PHP", "Sqlite"],
+    year: "May 2021 - Jul 2021",
+    role: "Technical Assistance",
+    company: "Freelance",
+    description: `Assisted clients and students with troubleshooting and technical queries. Provided guidance on installation and setup for software systems.`,
+    technologies: ["Technical Support", "Communication"],
   },
 ];
+
 
 export const PROJECTS = [
   {
@@ -74,3 +68,26 @@ export const CONTACT = {
   phoneNo: "+12 4555 666 00 ",
   email: "me@example.com",
 };
+
+export const SKILLS = [
+  {
+    category: "Frontend",
+    skills: ["HTML", "CSS", "JavaScript", "React", "Redux", "Tailwind CSS", "Material UI", "Bootstrap"],
+  },
+  {
+    category: "Backend",
+    skills: ["Node.js", "Express.js", "JWT"],
+  },
+  {
+    category: "Database",
+    skills: ["MongoDB"],
+  },
+  {
+    category: "Tools & Version Control",
+    skills: ["Git", "Agile Development"],
+  },
+  {
+    category: "Full Stack Development",
+    skills: ["MERN Stack"],
+  },
+];
