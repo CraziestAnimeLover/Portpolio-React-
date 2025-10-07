@@ -9,7 +9,11 @@ const Navbar = () => {
   return (
     <nav className="mb-12 flex justify-between items-center py-6 px-4 sm:px-8 bg-gray-800">
       <div className="flex items-center">
-        <h1 className="text-3xl font-bold text-white">Sunny Riar</h1>
+        <Link to="/">
+          <h1 className="text-3xl font-bold text-white cursor-pointer hover:text-gray-300">
+            Sunny Riar
+          </h1>
+        </Link>
       </div>
 
       {/* Desktop Menu */}
@@ -47,6 +51,9 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="fixed top-0 left-0 w-2/3 h-full bg-gray-800 flex flex-col items-center justify-center space-y-6 z-50 shadow-lg"
           >
+            <Link to="/" className="text-white text-lg hover:text-gray-300 transition" onClick={() => setIsOpen(false)}>
+              Home
+            </Link>
             <Link to="/experience" className="text-white text-lg hover:text-gray-300 transition" onClick={() => setIsOpen(false)}>
               Experience
             </Link>
