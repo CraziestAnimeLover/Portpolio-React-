@@ -2,7 +2,13 @@ import React from "react";
 import { RiReactjsLine } from "react-icons/ri";
 import { FaNodeJs } from "react-icons/fa";
 import { TbBrandJavascript } from "react-icons/tb";
-import { SiMongodb, SiExpress, SiTailwindcss, SiBootstrap, SiMaterialui } from "react-icons/si";
+import {
+  SiMongodb,
+  SiExpress,
+  SiTailwindcss,
+  SiBootstrap,
+  SiMui, // ✅ Correct import
+} from "react-icons/si";
 
 const Tec = () => {
   return (
@@ -49,7 +55,7 @@ const Tec = () => {
 
         {/* Material UI */}
         <div className="rounded-2xl border-4 border-neutral-700 bg-neutral-900 p-6 hover:scale-105 transition-transform duration-300">
-          <SiMaterialui className="text-7xl text-blue-400" />
+          <SiMui className="text-7xl text-blue-400" />
         </div>
       </div>
     </div>
