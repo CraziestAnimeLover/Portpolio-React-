@@ -14,7 +14,7 @@ const Tec = () => {
   return (
     <div className="border-b bg-neutral-800 pb-24">
       <h1 className="my-20 text-center text-4xl font-semibold text-white">
-        Technologies
+        Technical Expertise
       </h1>
 
       <div className="flex flex-wrap items-center justify-center gap-6">
