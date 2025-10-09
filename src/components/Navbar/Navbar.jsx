@@ -25,7 +25,7 @@ const Navbar = () => {
           Skills
         </Link>
         <Link to="/projects" className="text-white text-lg hover:text-gray-300 transition">
-          Skills
+          Project
         </Link>
       </div>
 
