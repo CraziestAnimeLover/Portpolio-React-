@@ -39,7 +39,10 @@ export const PROJECTS = [
   description:
     "A complete food delivery application with user authentication and an admin panel for managing product listings.",
   technologies: ["React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
+  github: "https://github.com/CraziestAnimeLover/ShriG",
+  liveDemo: "https://shri-g-seven.vercel.app",
 },
+
 
   {
     title: "Task Management App",
