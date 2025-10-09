@@ -38,6 +38,7 @@ function App() {
             {/* Experience Route */}
             <Route path="/experience" element={<Experience />} />
             <Route path="/skills" element={<Skills/>} />
+            <Route path="/projects" element={<Project/>} />
           </Routes>
         </div>
       </div>
