@@ -7,56 +7,37 @@ import {
   SiExpress,
   SiTailwindcss,
   SiBootstrap,
-  SiMui, // ✅ Correct import
+  SiMui,
 } from "react-icons/si";
 
 const Tec = () => {
+  const techStack = [
+    { icon: <RiReactjsLine className="text-7xl text-cyan-400" />, name: "React.js" },
+    { icon: <TbBrandJavascript className="text-7xl text-yellow-300" />, name: "JavaScript" },
+    { icon: <SiMongodb className="text-7xl text-green-400" />, name: "MongoDB" },
+    { icon: <FaNodeJs className="text-7xl text-green-500" />, name: "Node.js" },
+    { icon: <SiExpress className="text-7xl text-gray-300" />, name: "Express.js" },
+    { icon: <SiTailwindcss className="text-7xl text-sky-400" />, name: "TailwindCSS" },
+    { icon: <SiBootstrap className="text-7xl text-purple-400" />, name: "Bootstrap" },
+    { icon: <SiMui className="text-7xl text-blue-400" />, name: "Material UI" },
+  ];
+
   return (
-    <div className="border-b bg-neutral-800 pb-24">
-      <h1 className="my-20 text-center text-4xl font-semibold text-white">
+    <div className="border-b bg-neutral-800 pb-24 text-white">
+      <h1 className="my-20 text-center text-4xl font-semibold">
         Technical Expertise
       </h1>
 
-      <div className="flex flex-wrap items-center justify-center gap-6">
-        {/* React */}
-        <div className="rounded-2xl border-4 border-neutral-700 bg-neutral-900 p-6 hover:scale-105 transition-transform duration-300">
-          <RiReactjsLine className="text-7xl text-cyan-400" />
-        </div>
-
-        {/* JavaScript */}
-        <div className="rounded-2xl border-4 border-neutral-700 bg-neutral-900 p-6 hover:scale-105 transition-transform duration-300">
-          <TbBrandJavascript className="text-7xl text-yellow-300" />
-        </div>
-
-        {/* MongoDB */}
-        <div className="rounded-2xl border-4 border-neutral-700 bg-neutral-900 p-6 hover:scale-105 transition-transform duration-300">
-          <SiMongodb className="text-7xl text-green-400" />
-        </div>
-
-        {/* Node.js */}
-        <div className="rounded-2xl border-4 border-neutral-700 bg-neutral-900 p-6 hover:scale-105 transition-transform duration-300">
-          <FaNodeJs className="text-7xl text-green-500" />
-        </div>
-
-        {/* Express.js */}
-        <div className="rounded-2xl border-4 border-neutral-700 bg-neutral-900 p-6 hover:scale-105 transition-transform duration-300">
-          <SiExpress className="text-7xl text-gray-300" />
-        </div>
-
-        {/* TailwindCSS */}
-        <div className="rounded-2xl border-4 border-neutral-700 bg-neutral-900 p-6 hover:scale-105 transition-transform duration-300">
-          <SiTailwindcss className="text-7xl text-sky-400" />
-        </div>
-
-        {/* Bootstrap */}
-        <div className="rounded-2xl border-4 border-neutral-700 bg-neutral-900 p-6 hover:scale-105 transition-transform duration-300">
-          <SiBootstrap className="text-7xl text-purple-400" />
-        </div>
-
-        {/* Material UI */}
-        <div className="rounded-2xl border-4 border-neutral-700 bg-neutral-900 p-6 hover:scale-105 transition-transform duration-300">
-          <SiMui className="text-7xl text-blue-400" />
-        </div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 px-6">
+        {techStack.map((tech, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center rounded-2xl border-4 border-neutral-700 bg-neutral-900 p-6 hover:scale-105 transition-transform duration-300 shadow-lg"
+          >
+            {tech.icon}
+            <p className="mt-3 text-lg font-medium text-gray-300">{tech.name}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
