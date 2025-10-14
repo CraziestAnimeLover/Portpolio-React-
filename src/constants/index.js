@@ -10,7 +10,7 @@ export const ABOUT_TEXT = `I am a dedicated and versatile Full Stack Developer w
 export const EXPERIENCES = [
   {
     year: "Nov 2024 - July 2025",
-    role: "MERN Stack Developer Intern",
+    role: "MERN Stack Developer ",
     company: "Startup",
     description: `Collaborated with the team to build dynamic web applications using the MERN stack. Implemented responsive UI components with React, Redux, and Tailwind CSS. Created reusable components to improve development efficiency and participated in Agile practices and code reviews to enhance project quality.`,
     technologies: ["React", "Redux", "Tailwind CSS", "Node.js","Nodemailer","Twilio", "Express.js", "MongoDB"],
