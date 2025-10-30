@@ -59,8 +59,8 @@ export const PROJECTS = [
     description:
       "A personal portfolio website showcasing projects, skills, and contact information.",
     technologies: ["HTML", "CSS", "React", "TailwindCss"],
-    github: "https://github.com/CraziestAnimeLover/ShriG",
-    liveDemo: "https://github.com/CraziestAnimeLover/Portpolio-React-",
+    github: "https://github.com/CraziestAnimeLover/Portpolio-React-",
+    liveDemo: "https://portpolio-react-gamma.vercel.app/",
   },
   {
     title: "Blogging Platform",
