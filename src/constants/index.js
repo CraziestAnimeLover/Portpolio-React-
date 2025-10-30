@@ -20,7 +20,7 @@ export const EXPERIENCES = [
     role: "Subject Matter Expert (Mechanical Engineering)",
     company: "Chegg India",
     description: `Solved complex mechanical engineering problems, applying strong analytical and critical thinking skills to deliver accurate and high-quality solutions.`,
-    technologies: ["Problem Solving", "Technical Writing"],
+    technologies: ["Problem Solving", "Technical Writing","Ticket Resolving"],
   },
   {
     year: "May 2021 - Jul 2021",
@@ -45,11 +45,13 @@ export const PROJECTS = [
 
 
   {
-    title: "Task Management App",
+    title: "Food Delivery Admin",
     image: project2,
     description:
       "An application for managing tasks and projects, with features such as task creation, assignment, and progress tracking.",
-    technologies: ["HTML", "CSS", "Angular", "Firebase"],
+    technologies: ["React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
+    github: "https://github.com/CraziestAnimeLover/ShriG",
+    liveDemo: "https://shri-g-seven.vercel.app",
   },
   {
     title: "Portfolio Website",
