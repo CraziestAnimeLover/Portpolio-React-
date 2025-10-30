@@ -73,8 +73,8 @@ export const PROJECTS = [
 
 export const CONTACT = {
   address: "767 Fifth Avenue, New York, NY 10153 ",
-  phoneNo: "+12 4555 666 00 ",
-  email: "me@example.com",
+  phoneNo: "+919015088766 ",
+  email: "sunny9015088766@gmail.com",
 };
 
 export const SKILLS = [
@@ -84,7 +84,7 @@ export const SKILLS = [
   },
   {
     category: "Backend",
-    skills: ["Node.js", "Express.js", "JWT","Python","Flask"],
+    skills: ["Node.js", "Express.js", "JWT","Python","Flask","Axios","Twilio","Google Authenication","REST API"],
   },
   {
     category: "Database",
