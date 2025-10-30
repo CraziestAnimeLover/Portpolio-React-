@@ -25,7 +25,7 @@ export const EXPERIENCES = [
   {
     year: "May 2021 - Jul 2021",
     role: "Technical Assistance",
-    company: "Freelance",
+    company: "CETPA INFOTECH PVT LTD",
     description: `Assisted clients and students with troubleshooting and technical queries. Provided guidance on installation and setup for software systems.`,
     technologies: ["Technical Support", "Communication"],
   },
