@@ -50,8 +50,8 @@ export const PROJECTS = [
     description:
       "An application for managing tasks and projects, with features such as task creation, assignment, and progress tracking.",
     technologies: ["React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
-    github: "https://shri-g-admin.vercel.app/",
-    liveDemo: "https://shri-g-seven.vercel.app",
+    github: "https://github.com/CraziestAnimeLover/ShriG",
+    liveDemo: "https://shri-g-admin.vercel.app/",
   },
   {
     title: "Portfolio Website",
