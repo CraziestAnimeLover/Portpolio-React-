@@ -80,7 +80,7 @@ export const SKILLS = [
   },
   {
     category: "Backend",
-    skills: ["Node.js", "Express.js", "JWT"],
+    skills: ["Node.js", "Express.js", "JWT","Python","Flask"],
   },
   {
     category: "Database",
