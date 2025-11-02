@@ -33,16 +33,15 @@ export const EXPERIENCES = [
 
 
 export const PROJECTS = [
-{
-  title: "Food Delivery App",
-  image: project1,
-  description:
-    "A complete food delivery application with user authentication and an admin panel for managing product listings.",
-  technologies: ["React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
-  github: "https://github.com/CraziestAnimeLover/ShriG",
-  liveDemo: "https://shri-g-seven.vercel.app",
-},
-
+  {
+    title: "Food Delivery App",
+    image: project1,
+    description:
+      "A complete food delivery application with user authentication and an admin panel for managing product listings.",
+    technologies: ["React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
+    github: "https://github.com/CraziestAnimeLover/ShriG",
+    liveDemo: "https://shri-g-seven.vercel.app",
+  },
 
   {
     title: "Food Delivery Admin",
@@ -53,6 +52,7 @@ export const PROJECTS = [
     github: "https://github.com/CraziestAnimeLover/ShriG",
     liveDemo: "https://shri-g-admin.vercel.app/",
   },
+
   {
     title: "Portfolio Website",
     image: project3,
@@ -62,6 +62,7 @@ export const PROJECTS = [
     github: "https://github.com/CraziestAnimeLover/Portpolio-React-",
     liveDemo: "https://portpolio-react-gamma.vercel.app/",
   },
+
   {
     title: "Blogging Platform",
     image: project4,
@@ -69,7 +70,18 @@ export const PROJECTS = [
       "A platform for creating and publishing blog posts, with features like rich text editing, commenting, and user profiles.",
     technologies: ["HTML", "CSS", "Vue.js", "Express", "mySQL"],
   },
+
+  {
+    title: "Flashcard App",
+    image: project4,
+    description:
+      "An interactive flashcard web application that allows users to create, manage, and study custom flashcard sets for efficient learning.",
+    technologies: ["React", "Redux", "TailwindCSS", "Node.js", "Express", "MongoDB"],
+    github: "https://github.com/CraziestAnimeLover/flashcard-app", 
+    liveDemo: "https://flashcard-app-beige-beta.vercel.app/", // 
+  },
 ];
+
 
 export const CONTACT = {
   address: "767 Fifth Avenue, New York, NY 10153 ",
