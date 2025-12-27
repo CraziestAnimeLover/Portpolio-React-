@@ -34,6 +34,31 @@ export const EXPERIENCES = [
 
 export const PROJECTS = [
   {
+  title: "Blinkit Clone (Quick Commerce App)",
+  image: project1,
+  description:
+    "A Blinkit-inspired quick commerce application enabling users to order groceries with real-time order tracking, secure authentication, cart management, and instant online payments. Designed for fast, location-based delivery experience.",
+  technologies: [
+    "React",
+    "Vite",
+    "Tailwind CSS",
+    "React Router",
+    "Axios",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Mongoose",
+    "JWT",
+    "Google OAuth",
+    "Razorpay",
+    "Socket.io",
+    "Leaflet"
+  ],
+  github: "https://github.com/CraziestAnimeLover/blinkit-clone",
+  liveDemo: "https://blinkit-clone-frontend-one.vercel.app",
+}
+,
+  {
     title: "Food Delivery App",
     image: project1,
     description:
