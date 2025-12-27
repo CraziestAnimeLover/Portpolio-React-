@@ -2,13 +2,8 @@ import React from "react";
 import { RiReactjsLine } from "react-icons/ri";
 import { FaNodeJs } from "react-icons/fa";
 import { TbBrandJavascript } from "react-icons/tb";
-import {
-  SiMongodb,
-  SiExpress,
-  SiTailwindcss,
-  SiBootstrap,
-  SiMui,
-} from "react-icons/si";
+import { SiMongodb, SiExpress, SiTailwindcss, SiBootstrap, SiMui } from "react-icons/si";
+import { motion } from "framer-motion";
 
 const Tec = () => {
   const techStack = [
@@ -30,13 +25,17 @@ const Tec = () => {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 px-6">
         {techStack.map((tech, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
             className="flex flex-col items-center rounded-2xl border-4 border-neutral-700 bg-neutral-900 p-6 hover:scale-105 transition-transform duration-300 shadow-lg"
           >
             {tech.icon}
             <p className="mt-3 text-lg font-medium text-gray-300">{tech.name}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

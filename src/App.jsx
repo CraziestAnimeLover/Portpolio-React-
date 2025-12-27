@@ -8,6 +8,8 @@ import Project from "./components/Projectmine/Project";
 import Experience from "./pages/Experience"; // make sure you created this file
 import Skills from "./pages/Skills";
 
+import ComponentsPage from "./pages/Buttonstyle/ComponentsPage";
+
 function App() {
   return (
     <>
@@ -31,6 +33,8 @@ function App() {
                   <About />
                   <Tec />
                   <Project />
+                 
+                
                 </>
               }
             />
@@ -39,6 +43,7 @@ function App() {
             <Route path="/experience" element={<Experience />} />
             <Route path="/skills" element={<Skills/>} />
             <Route path="/projects" element={<Project/>} />
+            <Route path="/showcase" element={<ComponentsPage/>} />
           </Routes>
         </div>
       </div>

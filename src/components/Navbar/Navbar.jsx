@@ -1,68 +1,52 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "../../context/ThemeContext";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const [showThemes, setShowThemes] = useState(false);
+  const { currentGradient, setCurrentGradient, gradients } = useTheme();
 
   return (
-    <nav className="mb-12 flex justify-between items-center py-6 px-4 sm:px-8 bg-gray-800">
-      <div className="flex items-center">
+    <nav className={`mb-12 py-6 px-4 sm:px-8 ${currentGradient}`}>
+      <div className="flex justify-between items-center">
         <Link to="/">
-          <h1 className="text-3xl font-bold text-white cursor-pointer hover:text-gray-300">
-            Sunny Riar
-          </h1>
+          <h1 className="text-3xl font-bold text-white">Sunny Riar</h1>
         </Link>
-      </div>
 
-      {/* Desktop Menu */}
-      <div className="hidden md:flex items-center space-x-6">
-        <Link to="/experience" className="text-white text-lg hover:text-gray-300 transition">
-          Experience
-        </Link>
-        <Link to="/skills" className="text-white text-lg hover:text-gray-300 transition">
-          Skills
-        </Link>
-        <Link to="/projects" className="text-white text-lg hover:text-gray-300 transition">
-          Project
-        </Link>
-      </div>
+        <div className="hidden md:flex items-center gap-6">
+          <Link to="/experience" className="text-white">Experience</Link>
+          <Link to="/skills" className="text-white">Skills</Link>
+          <Link to="/projects" className="text-white">Projects</Link>
+          <Link to="/showcase" className="text-white">Showcase</Link>
 
-      {/* Mobile Menu Button */}
-      <div className="md:hidden flex items-center">
-        <button onClick={toggleMenu} className="text-white focus:outline-none">
-          {isOpen ? (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-          )}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-0 left-0 w-2/3 h-full bg-gray-800 flex flex-col items-center justify-center space-y-6 z-50 shadow-lg"
+          <button
+            onClick={() => setShowThemes(!showThemes)}
+            className="px-3 py-1 rounded-md bg-white/20 text-white"
           >
-            <Link to="/" className="text-white text-lg hover:text-gray-300 transition" onClick={() => setIsOpen(false)}>
-              Home
-            </Link>
-            <Link to="/experience" className="text-white text-lg hover:text-gray-300 transition" onClick={() => setIsOpen(false)}>
-              Experience
-            </Link>
-            <Link to="/skills" className="text-white text-lg hover:text-gray-300 transition" onClick={() => setIsOpen(false)}>
-              Skills
-            </Link>
+            Theme
+          </button>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {showThemes && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="absolute top-20 right-8 bg-black/80 p-4 rounded-lg flex gap-3 z-50"
+          >
+            {gradients.map((g, i) => (
+              <button
+                key={i}
+                onClick={() => {
+                  setCurrentGradient(g);
+                  setShowThemes(false);
+                }}
+                className={`w-8 h-8 rounded-full ${g} border-2 border-white`}
+              />
+            ))}
           </motion.div>
         )}
       </AnimatePresence>
