@@ -2,6 +2,7 @@ import project1 from "../assets/projects/project-1.jpg";
 import project2 from "../assets/projects/project-2.jpg";
 import project3 from "../assets/projects/project-3.jpg";
 import project4 from "../assets/projects/project-4.jpg";
+import Blinkit from "../assets/projects/Blinkit.png"
 
 export const HERO_CONTENT = `I am a passionate MERN Stack Developer with hands-on experience in building dynamic, scalable, and user-friendly web applications. Skilled in React, Redux, Node.js, Express, and MongoDB, I enjoy creating reusable components and collaborating with teams to solve complex business problems. My goal is to deliver high-quality code and seamless user experiences that drive value and growth.`;
 
@@ -35,7 +36,7 @@ export const EXPERIENCES = [
 export const PROJECTS = [
   {
   title: "Blinkit Clone (Quick Commerce App)",
-  image: project1,
+  image: Blinkit ,
   description:
     "A Blinkit-inspired quick commerce application enabling users to order groceries with real-time order tracking, secure authentication, cart management, and instant online payments. Designed for fast, location-based delivery experience.",
   technologies: [
