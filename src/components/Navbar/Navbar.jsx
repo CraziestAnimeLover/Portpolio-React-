@@ -22,21 +22,25 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-6">
+          <Link to="/resumebuilder" className={navLinkClass}>
+            Resume Builder
+          </Link>
+           <Link to="/showcase" className={navLinkClass}>
+            Showcase
+          </Link>
+          <Link to="/projects" className={navLinkClass}>
+            Projects
+          </Link>
           <Link to="/experience" className={navLinkClass}>
             Experience
           </Link>
           <Link to="/skills" className={navLinkClass}>
             Skills
           </Link>
-          <Link to="/projects" className={navLinkClass}>
-            Projects
+          <Link to="/contact" className={navLinkClass}>
+            Contact
           </Link>
-          <Link to="/resumebuilder" className={navLinkClass}>
-            Resume Builder
-          </Link>
-          <Link to="/showcase" className={navLinkClass}>
-            Showcase
-          </Link>
+         
 
           {/* Theme Button */}
           <motion.button

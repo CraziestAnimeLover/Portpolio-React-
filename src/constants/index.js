@@ -104,7 +104,7 @@ export const PROJECTS = [
 
 
 export const CONTACT = {
-  address: "767 Fifth Avenue, New York, NY 10153 ",
+  address: "Sector-50, Faridabad, India ",
   phoneNo: "+919015088766 ",
   email: "sunny9015088766@gmail.com",
 };
