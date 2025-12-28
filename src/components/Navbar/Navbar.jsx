@@ -18,6 +18,7 @@ const Navbar = () => {
           <Link to="/experience" className="text-white">Experience</Link>
           <Link to="/skills" className="text-white">Skills</Link>
           <Link to="/projects" className="text-white">Projects</Link>
+          <Link to="/resumebuilder" className="text-white">Resume Builder</Link>
           <Link to="/showcase" className="text-white">Showcase</Link>
 
           <button

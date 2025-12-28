@@ -11,6 +11,7 @@ import {
   FaTwitter,
   FaVoicemail,
 } from "react-icons/fa";
+import ResumeBuilder from "../Resume/ResumeBuilder";
 
 const HeroSection = () => {
   const { currentGradient } = useTheme();
@@ -66,6 +67,7 @@ const HeroSection = () => {
             className="rounded-3xl shadow-2xl max-w-sm"
           />
         </div>
+       
       </div>
     </div>
   );

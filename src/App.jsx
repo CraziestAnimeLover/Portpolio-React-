@@ -9,6 +9,7 @@ import Experience from "./pages/Experience"; // make sure you created this file
 import Skills from "./pages/Skills";
 
 import ComponentsPage from "./pages/Buttonstyle/ComponentsPage";
+import ResumeBuilder from "./components/Resume/ResumeBuilder";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
             <Route path="/skills" element={<Skills/>} />
             <Route path="/projects" element={<Project/>} />
             <Route path="/showcase" element={<ComponentsPage/>} />
+            <Route path="/resumebuilder" element={<ResumeBuilder/>} />
           </Routes>
         </div>
       </div>
