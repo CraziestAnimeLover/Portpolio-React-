@@ -21,11 +21,11 @@ export default function ResumeBuilder() {
     education: "",
     skills: [...initialSkills],
     projects: [
-      { name: "Blinkit Clone - Quick Commerce Web App", description: ["Developed with React & Vite","Implemented product listing & checkout","Integrated Google OAuth"] }
+       
     ],
     experience: [],
-    links: [],          // New section
-    achievements: [],   // New section
+    links: [],
+    achievements: [],
   });
 
   const [temp, setTemp] = useState({
@@ -129,35 +129,77 @@ export default function ResumeBuilder() {
         <textarea value={resume.summary} onChange={e => handleChange("summary", e.target.value)} placeholder="Professional Summary" className="w-full border p-2 rounded h-24 text-black"/>
         <textarea value={resume.education} onChange={e => handleChange("education", e.target.value)} placeholder="Education" className="w-full border p-2 rounded text-black"/>
 
-        {/* SKILLS */}
         <SectionInput label="Skills" value={temp.skill} onChange={v => setTemp({...temp, skill:v})} onAdd={() => addItem("skills","skill")} items={resume.skills} onRemove={i => removeItem("skills",i)} suggestions={initialSkills.filter(s => !resume.skills.includes(s))} editable updateItems={updated => setResume(prev => ({...prev, skills: updated}))} />
 
-        {/* PROJECTS */}
-        <div>
-          <h3 className="font-semibold">Projects</h3>
-          <input value={temp.projectName} onChange={e => setTemp({...temp, projectName:e.target.value})} placeholder="Project Name" className="border p-2 w-full rounded text-black mb-1"/>
-          <input value={temp.projectDesc} onChange={e => setTemp({...temp, projectDesc:e.target.value})} placeholder="Bullet point" className="border p-2 w-full rounded text-black mb-1"/>
-          <button onClick={addProject} className="bg-blue-600 text-white px-3 rounded mr-2">Add Project</button>
-          {resume.projects.length > 0 && (
-            <button onClick={() => addProjectDesc(resume.projects.length - 1)} className="bg-green-500 text-white px-3 rounded">Add Bullet</button>
-          )}
-        </div>
+      {/* Projects */}
+<div>
+  <h3 className="font-semibold">Projects</h3>
+  <input 
+    value={temp.projectName} 
+    onChange={e => setTemp({...temp, projectName:e.target.value})} 
+    placeholder="Project Name" 
+    className="border p-2 w-full rounded text-black mb-1"
+  />
+  <input 
+    value={temp.projectDesc} 
+    onChange={e => setTemp({...temp, projectDesc:e.target.value})} 
+    placeholder="Bullet point" 
+    className="border p-2 w-full rounded text-black mb-1"
+  />
+  <button onClick={addProject} className="bg-blue-600 text-white px-3 rounded mr-2">
+    Add Project
+  </button>
+  <button 
+    onClick={() => {
+      if(resume.projects.length === 0 && temp.projectName.trim()){
+        addProject();
+      } else if(resume.projects.length > 0){
+        addProjectDesc(resume.projects.length - 1);
+      }
+    }} 
+    className="bg-green-500 text-white px-3 rounded"
+  >
+    Add Bullet
+  </button>
+</div>
 
-        {/* EXPERIENCE */}
-        <div>
-          <h3 className="font-semibold">Experience</h3>
-          <input value={temp.expTitle} onChange={e => setTemp({...temp, expTitle:e.target.value})} placeholder="Role / Experience" className="border p-2 w-full rounded text-black mb-1"/>
-          <input value={temp.expDesc} onChange={e => setTemp({...temp, expDesc:e.target.value})} placeholder="Bullet point" className="border p-2 w-full rounded text-black mb-1"/>
-          <button onClick={addExperience} className="bg-blue-600 text-white px-3 rounded mr-2">Add Experience</button>
-          {resume.experience.length > 0 && (
-            <button onClick={() => addExperienceDesc(resume.experience.length - 1)} className="bg-green-500 text-white px-3 rounded">Add Bullet</button>
-          )}
-        </div>
+{/* Experience */}
+<div>
+  <h3 className="font-semibold">Experience</h3>
+  <input 
+    value={temp.expTitle} 
+    onChange={e => setTemp({...temp, expTitle:e.target.value})} 
+    placeholder="Role / Experience" 
+    className="border p-2 w-full rounded text-black mb-1"
+  />
+  <input 
+    value={temp.expDesc} 
+    onChange={e => setTemp({...temp, expDesc:e.target.value})} 
+    placeholder="Bullet point" 
+    className="border p-2 w-full rounded text-black mb-1"
+  />
+  <button onClick={addExperience} className="bg-blue-600 text-white px-3 rounded mr-2">
+    Add Experience
+  </button>
+  <button 
+    onClick={() => {
+      if(resume.experience.length === 0 && temp.expTitle.trim()){
+        addExperience();
+      } else if(resume.experience.length > 0){
+        addExperienceDesc(resume.experience.length - 1);
+      }
+    }} 
+    className="bg-green-500 text-white px-3 rounded"
+  >
+    Add Bullet
+  </button>
+</div>
 
-        {/* LINKS */}
+
+        {/* Links */}
         <SectionInput label="Links" value={temp.link} onChange={v => setTemp({...temp, link:v})} onAdd={() => addItem("links","link")} items={resume.links} onRemove={i => removeItem("links",i)} editable updateItems={updated => setResume(prev => ({...prev, links: updated}))} />
 
-        {/* ACHIEVEMENTS */}
+        {/* Achievements */}
         <SectionInput label="Achievements / Certifications" value={temp.achievement} onChange={v => setTemp({...temp, achievement:v})} onAdd={() => addItem("achievements","achievement")} items={resume.achievements} onRemove={i => removeItem("achievements",i)} editable updateItems={updated => setResume(prev => ({...prev, achievements: updated}))} />
 
         <button onClick={downloadPDF} className="w-full bg-green-600 text-white py-2 rounded">Download PDF</button>
@@ -166,30 +208,25 @@ export default function ResumeBuilder() {
       {/* PREVIEW SECTION */}
       <div ref={pdfRef} className="bg-white shadow flex min-h-[1120px]">
         <div className="w-1/3 bg-gray-900 text-white p-6">
-  <h1 className="text-xl font-bold">{resume.name || "Your Name"}</h1>
-  <p className="text-sm text-gray-300">{resume.title}</p>
-  <div className="mt-6">
-    <h3 className="font-semibold border-b border-gray-600 mb-2">CONTACT</h3>
-    <p className="text-sm">{resume.email}</p>
-    <p className="text-sm">{resume.phone}</p>
-    <p className="text-sm">{resume.location}</p>
-  </div>
-  <div className="mt-6">
-    <h3 className="font-semibold border-b border-gray-600 mb-2">LINKS</h3>
-    <ul className="text-sm space-y-1">
-      {resume.links.map((link,i) => (
-        <li key={i}>
-          <a href={link} target="_blank" rel="noreferrer" className="text-blue-400 underline">{link}</a>
-        </li>
-      ))}
-    </ul>
-  </div>
-  <div className="mt-6">
-    <h3 className="font-semibold border-b border-gray-600 mb-2">SKILLS</h3>
-    <ul className="text-sm space-y-1">{resume.skills.map((s,i)=><li key={i}>• {s}</li>)}</ul>
-  </div>
-</div>
-
+          <h1 className="text-xl font-bold">{resume.name || "Your Name"}</h1>
+          <p className="text-sm text-gray-300">{resume.title}</p>
+          <div className="mt-6">
+            <h3 className="font-semibold border-b border-gray-600 mb-2">CONTACT</h3>
+            <p className="text-sm">{resume.email}</p>
+            <p className="text-sm">{resume.phone}</p>
+            <p className="text-sm">{resume.location}</p>
+          </div>
+          <div className="mt-6">
+            <h3 className="font-semibold border-b border-gray-600 mb-2">LINKS</h3>
+            <ul className="text-sm space-y-1">
+              {resume.links.map((link,i)=>(<li key={i}><a href={link} target="_blank" rel="noreferrer" className="text-blue-400 underline">{link}</a></li>))}
+            </ul>
+          </div>
+          <div className="mt-6">
+            <h3 className="font-semibold border-b border-gray-600 mb-2">SKILLS</h3>
+            <ul className="text-sm space-y-1">{resume.skills.map((s,i)=><li key={i}>• {s}</li>)}</ul>
+          </div>
+        </div>
 
         <div className="w-2/3 p-8 text-gray-800 overflow-y-auto">
           <Section title="PROFESSIONAL SUMMARY">{resume.summary}</Section>
@@ -218,16 +255,14 @@ export default function ResumeBuilder() {
             ))}
           </div>
 
-          
-
           <Section title="EDUCATION">{resume.education}</Section>
+
           <div className="mb-6">
             <h3 className="font-bold border-b mb-2">ACHIEVEMENTS / CERTIFICATIONS</h3>
             <ul className="list-disc list-inside text-sm space-y-1">
               {resume.achievements.map((a,i)=><li key={i}>{a}</li>)}
             </ul>
           </div>
-
         </div>
       </div>
     </div>
