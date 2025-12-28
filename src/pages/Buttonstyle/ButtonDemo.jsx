@@ -1,5 +1,5 @@
 import React from "react";
-import DemoButton from "./DemoButton";
+import DemoButton from "./sunny-ui/DemoButton";
 
 const ButtonDemo = () => {
   const codeString = `

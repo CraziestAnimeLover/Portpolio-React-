@@ -1,57 +1,54 @@
 import React from "react";
-import ComponentDemo from "./ComponentDemo";
-import DemoButton from "./DemoButton";
-import { motion } from "framer-motion";
+import ComponentCard from "./ComponentCard";
+import { componentList } from "./componentList";
 
 const ComponentsPage = () => {
-  const buttonCode = `
-<motion.button
-  whileHover={{ scale: 1.1 }}
-  whileTap={{ scale: 0.95 }}
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.4 }}
-  className="px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl focus:outline-none"
->
-  Click Me
-</motion.button>
-  `;
-
-  const cardCode = `
-<motion.div className="p-6 bg-neutral-900 rounded-lg shadow-lg hover:shadow-xl">
-  <h3 className="text-xl font-bold text-white">Card Title</h3>
-  <p className="text-gray-400 mt-2">This is a description inside the card.</p>
-</motion.div>
-  `;
-
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      <h1 className="text-4xl font-bold text-center py-12">Component Showcase</h1>
+    <div className="min-h-screen bg-gray-900 text-white px-6 py-12">
+      {/* Page Title */}
+      <h1 className="text-4xl font-bold text-center mb-12">
+        Sunny-UI Component Showcase
+      </h1>
 
-      {/* Button Demo */}
-      <ComponentDemo
-        title="Animated Button"
-        description="A gradient button with hover and tap animations."
-        demoComponent={<DemoButton label="Click Me!" onClick={() => alert("Clicked!")} />}
-        codeString={buttonCode}
-      />
+      {/* Instructions */}
+      <div className="bg-blue-900 p-6 rounded-lg mb-12 shadow">
+        <h2 className="text-3xl font-bold mb-4">Instructions</h2>
+        <p className="mb-2">
+          This page showcases Sunny-UI components including buttons, toggles, and more.
+        </p>
+        <p className="mb-2">
+          <strong>To use Sunny-UI components in your project:</strong>
+        </p>
+        <ol className="list-decimal list-inside mb-2">
+          <li>Install required dependencies: <code>React</code>, <code>Tailwind CSS</code>, and <code>Framer Motion</code> if used.</li>
+          <li>Copy the <code>sunny-ui</code> folder into your <code>src/</code> directory.</li>
+          <li>Import the components in your files, e.g. <code>import DemoButton from '../sunny-ui/DemoButton'</code></li>
+          <li>Use them in JSX, e.g. <code>&lt;DemoButton label="Click Me" /&gt;</code></li>
+        </ol>
+        <p className="text-sm text-gray-300">
+          Example Tailwind CSS setup commands:
+        </p>
+        <pre className="bg-gray-900 p-2 rounded text-sm">
+          <code>
+            npm install -D tailwindcss postcss autoprefixer{"\n"}
+            npx tailwindcss init -p{"\n"}
+            npm install framer-motion
+          </code>
+        </pre>
+      </div>
 
-      {/* Card Demo */}
-      <ComponentDemo
-        title="Animated Card"
-        description="A card component with shadow and hover animation."
-        demoComponent={
-          <motion.div
-            className="p-6 bg-neutral-900 rounded-lg shadow-lg hover:shadow-xl"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          >
-            <h3 className="text-xl font-bold text-white">Card Title</h3>
-            <p className="text-gray-400 mt-2">This is a description inside the card.</p>
-          </motion.div>
-        }
-        codeString={cardCode}
-      />
+      {/* Component Cards Grid */}
+      <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+        {componentList.map((item, index) => (
+          <ComponentCard
+            key={index}
+            title={item.title}
+            description={item.description}
+            demoComponent={item.component}
+            codeString={item.code}
+          />
+        ))}
+      </div>
     </div>
   );
 };
