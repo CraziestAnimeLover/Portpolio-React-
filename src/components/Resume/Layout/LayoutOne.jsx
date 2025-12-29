@@ -2,157 +2,124 @@ import React from "react";
 import Section from "../Section";
 
 const LayoutOne = ({ resume, pdfRef }) => {
-  const educationList = Array.isArray(resume.education)
-    ? resume.education
-    : resume.education
-    ? [resume.education]
-    : [];
+  const toArray = (v) => (Array.isArray(v) ? v : v ? [v] : []);
 
-  const projectsList = Array.isArray(resume.projects)
-    ? resume.projects
-    : resume.projects
-    ? [resume.projects]
-    : [];
-
-  const experienceList = Array.isArray(resume.experience)
-    ? resume.experience
-    : resume.experience
-    ? [resume.experience]
-    : [];
-
-  const achievementsList = Array.isArray(resume.achievements)
-    ? resume.achievements
-    : resume.achievements
-    ? [resume.achievements]
-    : [];
-
-  const skillsList = Array.isArray(resume.skills)
-    ? resume.skills
-    : resume.skills
-    ? [resume.skills]
-    : [];
-
-  const linksList = Array.isArray(resume.links)
-    ? resume.links
-    : resume.links
-    ? [resume.links]
-    : [];
+  const educationList = toArray(resume.education);
+  const projectsList = toArray(resume.projects);
+  const experienceList = toArray(resume.experience);
+  const achievementsList = toArray(resume.achievements);
+  const skillsList = toArray(resume.skills);
+  const linksList = toArray(resume.links);
 
   return (
-    <div
-      ref={pdfRef}
-      className="bg-white min-h-[1120px] shadow flex flex-col md:flex-row"
-    >
-      {/* Sidebar */}
-      <div className="md:w-1/3 w-full bg-gray-900 text-white p-6">
-        <h1 className="text-xl font-bold">
-          {resume.name || "Your Name"}
-        </h1>
-        <p className="text-sm text-gray-300">
-          {resume.title}
-        </p>
+    <div className="w-full overflow-x-auto">
+      {/* Fixed-width resume canvas */}
+      <div
+        ref={pdfRef}
+        className="bg-white min-h-[1120px] shadow flex flex-row min-w-[900px]"
+      >
+        {/* ================= SIDEBAR ================= */}
+        <div className="w-1/3 bg-gray-900 text-white p-6">
+          <h1 className="text-xl font-bold">
+            {resume.name || "Your Name"}
+          </h1>
+          <p className="text-sm text-gray-300">
+            {resume.title}
+          </p>
 
-        {/* Contact */}
-        {(resume.contact || resume.email || resume.phone || resume.location) && (
-          <>
-            <h3 className="font-semibold mt-4">Contact</h3>
-            <p className="text-sm">{resume.contact?.email || resume.email}</p>
-            <p className="text-sm">{resume.contact?.phone || resume.phone}</p>
-            <p className="text-sm">{resume.contact?.location || resume.location}</p>
-          </>
-        )}
+          <h3 className="font-semibold mt-4">Contact</h3>
+          <p className="text-sm">{resume.contact?.email || resume.email}</p>
+          <p className="text-sm">{resume.contact?.phone || resume.phone}</p>
+          <p className="text-sm">{resume.contact?.location || resume.location}</p>
 
-        {/* Links */}
-        {linksList.length > 0 && (
-          <>
-            <h3 className="font-semibold mt-4">Links</h3>
-            <ul className="space-y-1 text-sm">
-              {linksList.map((link, i) => (
-                <li key={i}>
-                  <a
-                    href={link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-blue-400 underline break-all"
-                  >
-                    {link}
-                  </a>
-                </li>
+          {linksList.length > 0 && (
+            <>
+              <h3 className="font-semibold mt-4">Links</h3>
+              <ul className="text-sm space-y-1 break-all">
+                {linksList.map((l, i) => (
+                  <li key={i}>
+                    <a
+                      href={l}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-blue-400 underline"
+                    >
+                      {l}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+
+          {skillsList.length > 0 && (
+            <>
+              <h3 className="font-semibold mt-4">Skills</h3>
+              <ul className="text-sm space-y-1">
+                {skillsList.map((s, i) => (
+                  <li key={i}>• {s}</li>
+                ))}
+              </ul>
+            </>
+          )}
+        </div>
+
+        {/* ================= MAIN CONTENT ================= */}
+        <div className="w-2/3 p-6 text-gray-800">
+          {resume.summary && (
+            <Section title="Summary">{resume.summary}</Section>
+          )}
+
+          {projectsList.length > 0 && (
+            <Section title="Projects">
+              {projectsList.map((p, i) => (
+                <div key={i} className="mb-3">
+                  <p className="font-semibold">{p.name}</p>
+                  <ul className="list-disc ml-4 text-sm">
+                    {p.description?.map((d, j) => (
+                      <li key={j}>{d}</li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
-          </>
-        )}
+            </Section>
+          )}
 
-        {/* Skills */}
-        {skillsList.length > 0 && (
-          <>
-            <h3 className="font-semibold mt-4">Skills</h3>
-            <ul className="text-sm space-y-1">
-              {skillsList.map((s, i) => (
-                <li key={i}>• {s}</li>
+          {experienceList.length > 0 && (
+            <Section title="Experience">
+              {experienceList.map((e, i) => (
+                <div key={i} className="mb-3">
+                  <p className="font-semibold">{e.title}</p>
+                  <ul className="list-disc ml-4 text-sm">
+                    {e.description?.map((d, j) => (
+                      <li key={j}>{d}</li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
-          </>
-        )}
-      </div>
+            </Section>
+          )}
 
-      {/* Main Content */}
-      <div className="md:w-2/3 w-full p-6 text-gray-800 overflow-visible">
-        {resume.summary && (
-          <Section title="Summary">
-            {resume.summary}
-          </Section>
-        )}
-
-        {projectsList.length > 0 && (
-          <Section title="Projects">
-            {projectsList.map((p, i) => (
-              <div key={i} className="mb-3">
-                <p className="font-semibold">{p.name}</p>
-                <ul className="ml-4 list-disc text-sm">
-                  {p.description?.map((d, j) => (
-                    <li key={j}>{d}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </Section>
-        )}
-
-        {experienceList.length > 0 && (
-          <Section title="Experience">
-            {experienceList.map((e, i) => (
-              <div key={i} className="mb-3">
-                <p className="font-semibold">{e.title}</p>
-                <ul className="ml-4 list-disc text-sm">
-                  {e.description?.map((d, j) => (
-                    <li key={j}>{d}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </Section>
-        )}
-
-        {educationList.length > 0 && (
-          <Section title="Education">
-            {educationList.map((edu, i) => (
-              <p key={i} className="text-sm">
-                <strong>{edu.degree}</strong> – {edu.institution} ({edu.year})
-              </p>
-            ))}
-          </Section>
-        )}
-
-        {achievementsList.length > 0 && (
-          <Section title="Achievements">
-            <ul className="list-disc list-inside text-sm">
-              {achievementsList.map((a, i) => (
-                <li key={i}>{a}</li>
+          {educationList.length > 0 && (
+            <Section title="Education">
+              {educationList.map((edu, i) => (
+                <p key={i} className="text-sm">
+                  <strong>{edu.degree}</strong> – {edu.institution} ({edu.year})
+                </p>
               ))}
-            </ul>
-          </Section>
-        )}
+            </Section>
+          )}
+
+          {achievementsList.length > 0 && (
+            <Section title="Achievements">
+              <ul className="list-disc list-inside text-sm">
+                {achievementsList.map((a, i) => (
+                  <li key={i}>{a}</li>
+                ))}
+              </ul>
+            </Section>
+          )}
+        </div>
       </div>
     </div>
   );
