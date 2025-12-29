@@ -1,30 +1,33 @@
 import React from "react";
 import AboutPic from "../../assets/about.jpg";
-import { ABOUT_TEXT } from "../../constants/index.js";
-import { useTheme } from "../../context/ThemeContext.jsx";
+import { ABOUT_TEXT } from "../../constants";
+import { useTheme } from "../../context/ThemeContext";
 
-const About = () => { 
-  const { currentGradient } = useTheme(); // fixed typo
+const About = () => {
+  const { currentGradient } = useTheme();
 
   return (
-    <div className={`border-b border-neutral-900 pb-12 ${currentGradient}`}>
-      <h1 className="my-20 text-center text-4xl font-bold">
-        About <span className="text-neutral-500">Me</span>
+    <div className={`border-b border-neutral-900 pb-16 ${currentGradient}`}>
+      {/* Heading */}
+      <h1 className="my-12 sm:my-16 text-center text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+        About <span className="text-neutral-400">Me</span>
       </h1>
 
-      <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 px-6 lg:px-12">
-        {/* Left: Image */}
-        <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
+      {/* Content */}
+      <div className="flex flex-col lg:flex-row items-center gap-10 px-6 lg:px-12 max-w-7xl mx-auto">
+        
+        {/* Image */}
+        <div className="w-full lg:w-1/2 flex justify-center">
           <img
             src={AboutPic}
             alt="About Me"
-            className="rounded-2xl shadow-2xl max-w-sm lg:max-w-md"
+            className="w-full max-w-xs sm:max-w-sm lg:max-w-md rounded-2xl shadow-2xl object-cover"
           />
         </div>
 
-        {/* Right: Text */}
-        <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
-          <p className="text-gray-200 text-lg leading-relaxed max-w-xl">
+        {/* Text */}
+        <div className="w-full lg:w-1/2">
+          <p className="text-gray-200 text-base sm:text-lg lg:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
             {ABOUT_TEXT}
           </p>
         </div>
